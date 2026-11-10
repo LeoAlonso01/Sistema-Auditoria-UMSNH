@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+  <h2>Detalle de solicitud</h2>
+  <p><strong>Nombre:</strong> {{ solicitud.nombre }}</p>
+  <p><strong>Unidad responsable:</strong> {{ solicitud.unidad_responsable }}</p>
+  <p><strong>Fecha inicio:</strong> {{ solicitud.fecha_inicio_encargo }}</p>
+  <p><strong>Fecha final:</strong> {{ solicitud.fecha_final_encargo }}</p>
+  <p><strong>Estado:</strong> {{ solicitud.get_estado_display }}</p>
+  <p><strong>Solicitud especial:</strong> {{ solicitud.solicitud_especial|default:"-" }}</p>
+  <p><strong>Nombramiento:</strong> <a href="{{ solicitud.nombramiento.url }}" target="_blank">Ver archivo</a></p>
+  <p style="margin-top:12px;">
+    <a class="btn" href="/solicitudes/{{ solicitud.pk }}/pdf/">Generar PDF</a>
+  </p>
+</div>
+{% endblock %}

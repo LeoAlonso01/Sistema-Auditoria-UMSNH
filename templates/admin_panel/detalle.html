@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+  <h2>Detalle (admin)</h2>
+  <p><strong>Nombre:</strong> {{ solicitud.nombre }}</p>
+  <p><strong>Unidad:</strong> {{ solicitud.unidad_responsable }}</p>
+  <p><strong>Inicio:</strong> {{ solicitud.fecha_inicio_encargo }}</p>
+  <p><strong>Final:</strong> {{ solicitud.fecha_final_encargo }}</p>
+  <p><strong>Estado:</strong> {{ solicitud.get_estado_display }}</p>
+  <p><strong>Solicitud especial:</strong> {{ solicitud.solicitud_especial|default:"-" }}</p>
+  <p><strong>Observaciones:</strong> {{ solicitud.observaciones_admin|default:"-" }}</p>
+  <p><strong>Nombramiento:</strong> <a href="{{ solicitud.nombramiento.url }}" target="_blank">Ver archivo</a></p>
+  <p style="margin-top:12px;">
+    <a class="btn" href="/panel/solicitudes/{{ solicitud.pk }}/editar/">Editar</a>
+    <a class="btn btn-secondary" href="/panel/solicitudes/{{ solicitud.pk }}/pdf/">PDF</a>
+  </p>
+</div>
+{% endblock %}

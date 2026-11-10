@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card" style="max-width:420px;margin:auto;">
+  <h2>Iniciar sesión</h2>
+  <form method="post">{% csrf_token %}
+    <label>Usuario</label><input name="username" required>
+    <label>Contraseña</label><input type="password" name="password" required>
+    <button class="btn" type="submit">Ingresar</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+  <h2>Panel del funcionario</h2>
+  <p>Bienvenido, {{ user.username }}.</p>
+  <p style="margin-top:12px;">
+    <a class="btn" href="/solicitudes/nueva/">Nueva solicitud</a>
+    <a class="btn btn-secondary" href="/solicitudes/mis/">Mis solicitudes</a>
+  </p>
+</div>
+{% endblock %}

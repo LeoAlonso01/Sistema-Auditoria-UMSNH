@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+  <h2>Formatos de oficio</h2>
+  <p><a class="btn" href="/panel/formatos/nuevo/">Nuevo formato</a></p>
+  <table>
+    <tr><th>Nombre</th><th>Activo</th><th>Acciones</th></tr>
+    {% for f in formatos %}
+    <tr>
+      <td>{{ f.nombre }}</td>
+      <td>{{ f.activo|yesno:"Sí,No" }}</td>
+      <td><a href="/panel/formatos/{{ f.pk }}/editar/">Editar</a></td>
+    </tr>
+    {% empty %}<tr><td colspan="3">Sin formatos.</td></tr>{% endfor %}
+  </table>
+</div>
+{% endblock %}
